@@ -1,0 +1,224 @@
+5번
+
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <time.h>
+
+int isExceedCount(int);
+
+void main()
+{
+	int number = 0, put = 0, count = 0;
+	int result = 0;
+
+	srand((long)time(NULL));
+	number = rand() % 100 + 1;
+	printf("임의의 수가 정해졌습니다. 이 정수는 무엇일까요?\n(기회는 최대 7번 입니다.) \n");
+	while (1)
+	{
+		printf("입력해보세요: ");
+		scanf("%d", &put);
+		count++;
+
+		result = isExceedCount(count);
+		if (result == 1) {
+			printf("모든 기회를 다 쓰셨습니다.\n");
+			break;
+		}
+
+		if (number == put)
+		{
+			printf("정답입니다.");
+			break;
+		}
+		else if (number < put) {
+			if(result == 0){
+			printf("입력한 값보다 작습니다. 다시 해보세요:");
+			}
+		}
+		else if (number > put) {
+			if(result == 0){
+			printf("입력한 값보다 큽니다. 다시 해보세요: ");
+			}
+		}
+		
+	}
+}
+
+
+
+int isExceedCount(int incount)
+{
+	if (incount == 7) return 1;
+	else return 0;
+		
+}
+
+********************************************************************
+6번 
+
+
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <time.h>
+#define MAX 45
+
+int getnumber(int);
+
+void main()
+{
+	int a, b, c, d, e, f;
+
+	a = getnumber(MAX);
+	
+	do{
+		b = getnumber(MAX);
+	}while(a == b);
+
+	do{
+		c = getnumber(MAX);
+	}while((c == a) || (c == b));
+
+	do{
+		d = getnumber(MAX);
+	}while((d == a) || (d == b) || (d == c));
+
+	do{
+		e = getnumber(MAX);
+	}while((e == a) || (e == b) || (e == c) || (e == d));
+
+	do{
+		f = getnumber(MAX);
+	}while((f == a) || (f == b) || (f == c) || (f == d) || (f == e));
+
+	printf("%d %d %d %d %d %d", a, b, c, d, e ,f);
+}
+
+int getnumber(int n)
+{
+	srand((long)time(NULL));
+	return rand()% n + 1;
+}
+
+********************************************************************
+7번
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <limits.h>
+
+char input();
+void next(char, int);
+
+void main()
+{
+	char result;
+	int count = 0;
+
+	do {
+		result = input();
+		if (result == '0') 
+		{
+			printf(" <maim()함수> : 0을 입력하여 종료 \n");
+			break;
+		}
+		next(result, ++count);
+		printf("\n");
+	} while (1);
+}
+
+char input()
+{
+	char ch;
+	
+	while (1) {
+		printf("\n");
+		printf("input()함수 문자입력: ");
+		ch = getche();
+		if (ch == '0')
+			return '0';
+		else if (!(isalpha(ch)))
+			continue;
+		else if (isalpha(ch)) 
+		{
+			ch = toupper(ch);
+			return ch;
+		}
+	}
+	
+}
+
+void next(char inch, int incount)
+{
+	printf(" <next()함수> : ");
+	for (int i = 0; i < incount; i++)
+		printf("%c", inch);
+}
+********************************************************************
+8번
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <time.h>
+
+char getCount(int);
+char getInChar(int);
+
+int main()
+{
+	int count;
+	char prt;
+	printf("반복횟수를입력하세요:");
+	scanf("%d", &count);
+	prt = getCount(count);
+	printf("M과 가장 가까운 문자는: %c \n", prt);
+
+}
+
+char getCount(int incount)
+{
+	char result;
+	result = getInChar(incount);
+	return result;
+}
+
+char getInChar(int getcount)
+{
+	char ch;
+	int  count = 0;
+	int result;
+	char min = 'z';
+	char minchar;
+		do{
+		printf("문자입력: ");
+		ch = getche();
+		printf("\n");
+		if (!(tolower(ch) >= 'a' && tolower(ch) <= 'z')) {
+			printf("알파벳이 아닙니다 다시 입력하세요 \n");
+			continue;
+		}
+		else {
+			result = 'm' - ch;
+			if (result < 0)
+				result = result * -1;
+
+			if (result < min) 
+			{
+				min = result;
+				minchar = ch;
+			}
+		}
+			count++;
+		} while (count < getcount);
+			return minchar;
+}

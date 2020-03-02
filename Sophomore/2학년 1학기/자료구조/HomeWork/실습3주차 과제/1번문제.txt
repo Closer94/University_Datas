@@ -1,0 +1,48 @@
+
+public class Ex03 {
+	int start;
+	int end;
+	Ex03 obj_val;
+	
+	public Ex03()
+	{
+		start = 1;
+		end = 50;
+	}
+	
+	public Ex03(int start, int end)
+	{
+		this.start = start;
+		this.end = end;
+	}
+	
+	public Ex03(Ex03 obj_val)
+	{
+		this.obj_val = obj_val;
+		start = obj_val.start;
+		end = obj_val.end;
+		prt();
+	}
+	
+	public void prt()
+	{
+		System.out.println(start +"부터" + end + "까지 짝수만 출력합니다.");
+		while(start <= end)
+		{
+			if(start % 2 == 0)
+			{
+				System.out.println(start);
+			}
+			start++;
+		}
+		System.out.println("\n");
+	}
+	public static void main(String[] args) {
+		Ex03 obj1 = new Ex03();
+		Ex03 obj2 = new Ex03(5, 9);
+		Ex03 obj3 = new Ex03(obj2);
+		
+		obj1.prt();
+		obj2.prt();
+	}
+}

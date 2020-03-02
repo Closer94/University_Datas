@@ -1,0 +1,141 @@
+#define _CRT_NONSTDC_NO_WARNINGS  // 비표준 함수를 사용했을 때 에러 방지 
+				 // getche() 함수를 썻을때 에러가 나서 구굴링 해본 결과  위와같은것을 설정했더니 오류가 안났습니다.
+#include <conio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <String.h>
+
+void f1()
+{
+	int num;
+	printf("천만 이하의 정수를 입력하세요: ");
+	scanf("%d", &num);
+	printf("%d 만 ", num / 10000);
+	printf("%d 천 ", (num % 10000) / 1000);
+	printf("%d 백 ", (num % 1000) / 100);
+	printf("%d 십 ", (num % 100) / 10);
+	printf("%d 원", num % 10);
+}
+}
+
+void f2()
+{
+	int money;
+	int result;
+
+	printf("지불할 금액을 입력하세요:");
+	scanf("%d", &money);
+	fflush(stdin);
+	printf("입력한 금액: %d \n", money);
+	printf("화페 단위로 출력 \n");
+	result = money / 50000;
+	money = money % 50000;
+	printf("50000원권 %d 개 \n", result);
+	result = money / 10000;
+	money = money % 10000;
+	printf("10000원권 %d 개 \n", result);
+	result = money / 5000;
+	money = money % 5000;
+	printf("5000원권 %d 개 \n", result);
+	result = money / 1000;
+	money = money % 1000;
+	printf("1000d원권 %d 개 \n", result);
+	printf("나머지 돈: %d \n", money);
+
+}
+
+void f3()
+{
+	int num1, num2;
+
+	printf("두개의 정수를 입력하세요: ");
+	scanf("%d %d", &num1, &num2);
+	fflush(stdin);
+	(num1 > num2) ? printf("%d, %d \n", num1 / num2, num1%num2) : printf("%d, %d \n", num2 / num1, num2 / num1);
+}
+
+void f4()
+{
+	int num1, num2, num3;
+
+	printf("세개의 정수를 입력하세요:");
+	scanf("%d %d %d", &num1, &num2, &num3);
+	fflush(stdin);
+	(num1 > num2) ? (num1 > num3) ? printf("가장큰 값: %d", num1) : printf("가장큰값 : %d", num3) : (num2 > num3) ? printf("가장큰값: %d", num2) : printf("가장큰값: %d", num3);
+
+}
+
+void f5()
+{
+	int num;
+
+	printf("정수를 입력하세요:");
+	scanf("%d", &num);
+	fflush(stdin);
+	printf("입력된 정수: %d \n", num);
+	printf("%d의 2배: %d \n", num, num <<1 );
+	printf("%d의 4배: %d \n", num, num <<2);
+	printf("%d의 8배: %d \n", num, num <<3);
+
+}
+
+void f6()
+{
+	char ch;
+
+	printf("문자를 입력하세요: ");
+	ch = getche();
+	(ch >= '0' && ch <= '9') ? printf("N") : printf("Y");
+}
+
+void f7()
+{
+	int num;
+
+	printf("정수를 입력하세요: ");
+	scanf("%d", &num);
+	fflush(stdin);
+	printf("입력된 정수: %d \n", num);
+	((num >> 1) > 10) ? printf("OK") : printf("NOK");
+}
+
+void f8()
+{
+	char c1, c2;
+	int c1Num, c2Num;
+	int result;
+
+	printf("두개의 숫자를 입력하세요: ");
+	c1 = getche();
+	printf("-");
+	c2 = getche();
+	printf("=");
+	c1Num = c1 - '0';
+	c2Num = c2 - '0';
+	result = c1Num - c2Num;
+	((c1 >= '0' && c1 <= '9') && (c2 >= '0' && c2 <= '9')) ? printf("%d \n", result) : printf("%d", 0);
+	
+
+}
+
+int main(void)
+{	
+	f1();
+	printf("\n");
+	f2();
+	printf("\n");
+	f3();
+	printf("\n");
+	f4();
+	printf("\n");
+	f5();
+	printf("\n");
+	f6();
+	printf("\n");
+	f7();
+	printf("\n");
+	f8();
+	getchar();
+	getchar();
+}

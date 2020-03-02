@@ -1,0 +1,6 @@
+deepskyblBue(#00BFFF)
+fuchsia(#FF00FF)
+darkorange(#FF8C00)
+darkcyan(#008B8B)
+olivedrab(#6B8E23)
+aliceblue

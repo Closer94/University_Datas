@@ -1,0 +1,40 @@
+USE master
+GO
+
+CREATE DATABASE deleteTest
+GO
+
+USE deleteTest
+GO
+
+CREATE TABLE memberTest(
+	id INT IDENTITY(1,1),
+	name VARCHAR(20)
+)
+
+INSERT memberTest VALUES('±Ë≥™∏Æ')
+INSERT memberTest VALUES('¿ÃπÈ«’')
+INSERT memberTest VALUES('±Ë¿ÂπÃ')
+
+DELETE FROM memberTest
+
+CREATE DATABASE truncateTest
+GO
+
+USE truncateTest
+GO
+
+CREATE TABLE memberTest2(
+	id INT IDENTITY(1,1),
+	name VARCHAR(20)
+)
+
+INSERT memberTest2 VALUES('±Ë≥™∏Æ')
+INSERT memberTest2 VALUES('¿ÃπÈ«’')
+INSERT memberTest2 VALUES('±Ë¿ÂπÃ')
+
+TRUNCATE TABLE memberTest2
+
+INSERT memberTest2 VALUES('±Ë≥™∏Æ')
+INSERT memberTest2 VALUES('¿ÃπÈ«’')
+INSERT memberTest2 VALUES('±Ë¿ÂπÃ')

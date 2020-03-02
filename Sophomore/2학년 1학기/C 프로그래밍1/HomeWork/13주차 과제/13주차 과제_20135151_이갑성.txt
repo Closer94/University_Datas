@@ -1,0 +1,133 @@
+1.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <conio.h>
+#include <string.h>
+
+struct book
+{
+	char name[10];
+	int price;
+};
+
+void main()
+{
+	struct book b;
+	
+	
+	printf("책 제목을 입력하세요: ");
+	gets(b.name);
+	printf("가격을 입력하세요: ");
+	scanf("%d", &b.price);
+	
+	printf("책 제목: %s, 책 가격: %d \n", b.name, b.price);
+	
+}
+
+=================================================================================
+2.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <conio.h>
+#include <string.h>
+
+struct book
+{
+	char name[10];
+	int price;
+};
+
+void main()
+{
+	struct book b[3];
+	int i;
+	
+
+	for (i = 0; i < 3; i++)
+	{
+		
+		printf("책 제목을 입력하세요: ");
+		gets(b[i].name);
+		printf("가격을 입력하세요: ");
+		scanf("%d", &b[i].price);
+		getchar();
+	}
+
+	for (i = 0; i < 3; i++)
+	{
+		printf("책 제목: %s, 책 가격: %d \n", b[i].name, b[i].price);
+	}
+}
+
+=================================================================================
+3.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <conio.h>
+#include <string.h>
+
+struct complex 
+{
+	double sil; // 실수 
+	double ho; // 허수
+};
+
+void main()
+{
+	struct complex compa;
+	struct complex compb;
+	struct complex compplus;
+
+	printf("compa의 실수를 입력하세요: ");
+	scanf("%lf", &compa.sil);
+	printf("compa의 허수를 입력하세요: ");
+	scanf("%lf", &compa.ho);
+	printf("compb의 실수를 입력하세요: ");
+	scanf("%lf", &compb.sil);
+	printf("compb의 허수를 입력하세요: ");
+	scanf("%lf", &compb.ho);
+
+	compplus.sil = compa.sil + compb.sil;
+	compplus.ho = compa.ho + compb.ho;
+	printf("compa + compb의 합: %.0lf.%.0lfi", compplus.sil, compplus.ho);
+
+}
+
+=================================================================================
+4.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <conio.h>
+#include <string.h>
+
+struct data
+{
+	char name[20];
+	char jumin[20];
+	int year;
+	int month;
+	int date;
+};
+
+typedef struct data datetype;
+
+void main()
+{
+	datetype person[3] = { { "이갑성", "940602-1******", 1994, 6, 2 } 
+						, {"이갑순", "940827-2******", 1994, 8, 27}
+						, {"이갑돌", "130204-1******", 2013, 2, 4} };
+	int i;
+
+	for (i = 0; i < sizeof(person) / sizeof(person[0]); i++)
+	{
+		printf("이름: %s, 주민번호: %s, 생년월일: %d년 %d월 %d일 \n", person[i].name, person[i].jumin, person[i].year, person[i].month, person[i].date);
+	}
+}

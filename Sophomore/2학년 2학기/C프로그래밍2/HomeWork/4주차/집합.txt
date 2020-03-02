@@ -1,0 +1,355 @@
+<합집합 구하기>
+
+
+
+#include <stdio.h>
+
+//void hap(int a[], int b[], int size_a, int size_b, int result[]);
+
+void main()
+{
+	int a[] = { 5, 8, 12, 1, 10 };
+	int b[] = { 8, 9, 1, 14 };
+	int result[9] = { 0 };
+	int size_a = sizeof(a) / sizeof(int);
+	int size_b = sizeof(b) / sizeof(int);
+	int i, j, cnt = 0;
+	int count = 0; // 0을 제외한 result 배열의 개수를 저장하는 변수
+
+	for (i = 0; i < size_a; i++)
+	{
+		result[cnt] = a[i];
+		cnt++;
+	}
+
+	for (j = 0; j < size_b; j++)
+	{
+		result[cnt] = b[j];
+		cnt++;
+	}
+
+	printf("배열 A: ");
+	for (i = 0; i < size_a; i++)
+	{
+		printf("%d  ", a[i]);
+	}
+
+	printf("\n");
+
+	printf("배열 B: ");
+	for (i = 0; i < size_b; i++)
+	{
+		printf("%d  ", b[i]);
+	}
+
+	printf("\n\n\n");
+
+	printf("	<합집합> \n\n\n");
+	printf("========1단계======== \n"); // A배열과 B배열의 같은게 있으면 result배열에서 0으로 만들기
+	for (i = 0; i < cnt; i++)
+	{
+		printf("%d  ", result[i]);
+	}
+
+	printf("\n\n\n");
+
+	for (i = 0; i < size_a; i++)
+	{
+		for (j = 0; j < size_b; j++)
+		{
+			if (a[i] == b[j])
+			{
+				result[size_a + j] = 0;
+			}
+		}
+	}
+	printf("========2단계======== \n");
+	for (int i = 0; i < cnt; i++)
+	{
+		printf("%d  ", result[i]);
+	}
+
+	for (i = 0; i < cnt; i++) //result배열에서 0이 아닌 개수를 count 하고
+	{
+		if (result[i] != 0)
+			count++;
+	}
+
+	printf("count 개수 : %d \n\n", count); //result배열에 0이 있으면 한칸 앞으로 당기기
+
+
+	printf("\n\n\n");
+
+	printf("========3단계======== \n");
+	for (i = 0; i < cnt; i++)
+	{		
+		if (result[i] == 0)
+		{
+			for (j = i; j < cnt; j++)
+			{
+				result[j] = result[j + 1];
+			}
+		}
+	}
+
+
+	for (int i = 0; i < cnt; i++)
+	{
+		printf("%d  ", result[i]);
+	}
+
+	printf("\n\n\n");
+	printf("========3단계======== \n");
+	for (i = 0; i < count; i++)
+	{
+
+		printf("%d  ", result[i]);
+
+	}
+}
+<교집합 구하기>
+
+#include <stdio.h>
+
+
+void main()
+{
+	int a[] = { 5, 8, 12, 1, 10 };
+	int b[] = { 8, 9, 1, 14 };
+	int result[9] = { 0 };
+	int size_a = sizeof(a) / sizeof(int);
+	int size_b = sizeof(b) / sizeof(int);
+	int i, j, cnt = 0;
+	int count = 0; // 0을 제외한 result 배열의 개수를 저장하는 변수
+
+
+	printf("배열 A: ");
+	for (i = 0; i < size_a; i++)
+	{
+		printf("%d  ", a[i]);
+	}
+
+	printf("\n");
+
+	printf("배열 B: ");
+	for (i = 0; i < size_b; i++)
+	{
+		printf("%d  ", b[i]);
+	}
+
+	printf("\n\n\n");
+
+	for (i = 0; i < size_a; i++)
+	{
+		for (j = 0; j < size_b; j++)
+		{
+			if (a[i] == b[j])
+			{
+				result[cnt] = a[i];
+				cnt++;
+			}
+		}
+	}
+
+	printf("=========교집합========= \n");
+	for (i = 0; i < cnt; i++)
+	{
+		printf("%d  ", result[i]);
+	}
+
+	printf("\n\n\n\n");
+}
+
+<차집합 구하기>
+
+#include <stdio.h>
+
+
+void main()
+{
+	int a[] = { 5, 8, 12, 1, 10 };
+	int b[] = { 8, 9, 1, 14 };
+	int result[9] = { 0 };
+	int size_a = sizeof(a) / sizeof(int);
+	int size_b = sizeof(b) / sizeof(int);
+	int i, j, cnt = 0;
+	int count = 0; // 0을 제외한 result 배열의 개수를 저장하는 변수
+
+
+	printf("배열 A: ");
+	for (i = 0; i < size_a; i++)
+	{
+		printf("%d  ", a[i]);
+	}
+
+	printf("\n");
+
+	printf("배열 B: ");
+	for (i = 0; i < size_b; i++)
+	{
+		printf("%d  ", b[i]);
+	}
+
+	printf("\n\n\n");
+
+	printf("	<차집합>\n\n");
+	for (i = 0; i < size_a; i++)
+	{
+		result[cnt] = a[i];
+		cnt++;
+	}
+
+	for (i = 0; i < cnt; i++)
+	{
+
+		for (j = 0; j < size_b; j++)
+		{
+			if (result[i] == b[j])
+			{
+				result[i] = 0;
+			}
+		}
+	}
+
+	printf("==========1단계=========\n"); // result집합과 B집합의 같은건 0으로 채우기
+
+	for (i = 0; i < cnt; i++)
+	{
+		printf("%d  ", result[i]);
+	}
+	printf("\n\n\n\n");
+
+
+	printf("==========2단계=========\n"); 
+	for (i = 0; i < cnt; i++) //result배열에서 0이 아닌 개수를 count 하고
+	{
+		if (result[i] != 0)
+			count++;
+	}
+
+	for (i = 0; i < cnt; i++) //result배열에 0이 있으면 한칸 앞으로 당기기
+	{
+		
+		if (result[i] == 0)
+		{
+			for (j = i; j < cnt; j++)
+			{
+				result[j] = result[j + 1];
+			}
+		}
+
+	}
+
+
+	for (i = 0; i < cnt; i++)
+	{
+		printf("%d  ", result[i]);
+	}
+
+	printf("\n\n\n\n");
+
+	printf("count개수 : %d \n\n", count);
+
+	printf("==========3단계=========\n");
+
+	for (i = 0; i < count; i++)
+	{
+		printf("%d  ", result[i]);
+	}
+}
+
+
+======================또다른 차집합 연산 방법============================
+#include <stdio.h>
+
+int main()
+{
+	int a[5] = { 1, 2, 3, 4, 5};
+	int b[3] = { 4, 5, 6 };
+	int result[7] = { 0 };
+	int i, j;
+	int cnt = 0;
+	int check = -1; //같은지 않같은지 체크해주는 변수
+
+	for (i = 0; i < 4; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (a[i] == b[j])
+			{
+				check = 0;
+			}
+		}
+		if (check == -1) // 같지않은것은 result배열에 넣기
+		{
+			result[cnt] = a[i];
+			cnt++;
+		}
+	}
+	
+	for (i = 0; i < cnt; i++)
+	{
+		printf("%d  ", result[i]);
+	}
+}
+
+======================또다른 합집합 연산 방법============================
+
+#include <stdio.h>
+
+int main()
+{
+	int a[5] = { 1, 2, 3, 4, 5 };
+	int b[3] = { 4, 5, 6 };
+	int result[7] = { 0 };
+	int i, j;
+	
+
+	for (i = 0; i < 4; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (a[i] == b[j])
+			{
+				b[j] = 0;
+			}
+		}
+	
+	}
+
+	for (i = 0; i < 4; i++)
+	{
+		result[i] = a[i];
+	}
+
+	for (j = 0; j < 3; j++)
+	{
+		result[i + j] = b[j];
+	}
+
+	for (i = 0; i < 7; i++)
+	{
+		printf("%d  ", result[i]);
+	}
+
+	int size = sizeof(result) / sizeof(int);
+
+	for (i = 0; i < size; i++)
+	{
+		if (result[i] == 0) {
+			size = size - 1;
+			for (j = i; j < size; j++)
+			{
+				result[j] = result[j+1];
+			}
+			
+		}
+	}
+
+	printf("\n");
+
+	for (i = 0; i < size; i++)
+	{
+		printf("%d  ", result[i]);
+	}
+}

@@ -1,0 +1,34 @@
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\bin\Debug\TransferTax.exe.config
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\bin\Debug\TransferTax.exe
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\bin\Debug\TransferTax.pdb
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.csprojAssemblyReference.cache
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.menuForm.resources
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.Properties.Resources.resources
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.startForm.resources
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.csproj.GenerateResource.cache
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.csproj.CoreCompileInputs.cache
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.exe
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.pdb
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.exitForm.resources
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.TransForm.resources
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.acquDetailForm.resources
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.achiDetailForm.resources
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.achiForm.resources
+C:\Users\kabsung\Desktop\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.compForm.resources
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.csprojAssemblyReference.cache
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.achiDetailForm.resources
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.achiForm.resources
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.acquDetailForm.resources
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.compForm.resources
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.exitForm.resources
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.menuForm.resources
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.Properties.Resources.resources
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.startForm.resources
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.TransForm.resources
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.csproj.GenerateResource.cache
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.csproj.CoreCompileInputs.cache
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.exe
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\obj\Debug\TransferTax.pdb
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\bin\Debug\TransferTax.exe.config
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\bin\Debug\TransferTax.exe
+C:\Users\kabsung\Documents\3학년\2019 3학년 1학기\윈도우프로그래밍\프로젝트\윈프프로젝트\Tax\TransferTax\bin\Debug\TransferTax.pdb

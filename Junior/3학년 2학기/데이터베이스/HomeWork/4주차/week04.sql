@@ -1,0 +1,44 @@
+CREATE DATABASE test04
+GO
+
+USE test04
+GO
+
+CREATE TABLE Account(
+	번호 INT IDENTITY(1001, 1) PRIMARY KEY,
+	고객명 VARCHAR(20) NOT NULL,
+	잔액 INT DEFAULT 0,
+	카드 BIT NOT NULL,
+	분류 NVARCHAR(5) NOT NULL,
+	이율 FLOAT NOT NULL
+)
+
+SELECT * FROM Account
+
+INSERT Account VALUES('이갑성', 10000, 1, '개인', 0.5)
+INSERT Account VALUES('정승용', 2000, 0, '법인', 0.1)
+INSERT Account VALUES('이재용', 1000000, 1, '법인', 0.8)
+INSERT Account VALUES('잡스', 800000, 0, '개인', 0.3)
+INSERT Account VALUES('스펀지밥', 100, 1, '개인', 0.98)
+
+SELECT * FROM Account
+
+ALTER TABLE Account
+ALTER COLUMN 분류 NVARCHAR(1)
+
+SELECT * FROM Account
+
+ALTER TABLE Account
+ALTER COLUMN 분류 NVARCHAR(10)
+
+SELECT * FROM Account
+
+ALTER TABLE Account
+DROP COLUMN 카드
+
+SELECT * FROM Account
+
+TRUNCATE TABLE Account
+
+SELECT * FROM Account
+

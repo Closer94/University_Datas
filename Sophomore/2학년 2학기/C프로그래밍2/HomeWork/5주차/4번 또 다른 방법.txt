@@ -1,0 +1,74 @@
+#include <stdio.h>
+
+void arraymerge(int *a, int an, int *b, int bn, int *c);
+void print(int *p, int size);
+
+void main(void)
+{
+	int a[] = { 1, 2, 5, 7, 9, 14 };
+	int an = sizeof(a) / sizeof(a[0]);
+
+	int b[] = { 2, 3, 6, 8, 13 };
+	int bn = sizeof(b) / sizeof(b[0]);
+
+	int c[20] = {0};
+	
+	arraymerge(a, an, b, bn, c);
+	
+	print(c, an+bn);
+
+}
+
+void arraymerge(int *a, int an, int *b, int bn, int *c)
+{
+	int i = 0;
+	int j = 0;
+	int z = 0;
+
+	while ((i < an) && (j < bn))
+	{
+		if (*(a + i) < *(b + j))
+		{
+			*(c + z) = *(a + i);
+			z++;
+			i++;
+		}
+		else 
+		{
+			*(c + z) = *(b + j);
+			z++;
+			j++;
+		}
+	}
+
+	if (i >= an)
+	{
+		while (j < bn)
+		{
+			*(c + z) = *(b + j);
+			z++;
+			j++;
+		}
+	}
+	else if (j >= bn)
+	{
+		while (i < an)
+		{
+			*(c + z) = *(a + i);
+			z++;
+			i++;
+		}
+	}
+}
+
+
+void print(int *p, int size)
+{
+	int i;
+
+	for (i = 0; i < size; i++)
+	{
+		printf("%d  ", *(p + i));
+	}
+	
+}

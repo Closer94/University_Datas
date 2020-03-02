@@ -1,0 +1,51 @@
+#include <stdio.h> 
+#include <stdlib.h>
+#include <ctype.h>
+#include <conio.h>
+#include <string.h>
+
+void search(char *p, char *q, char *r, char *c);
+
+void main()
+{
+	char str1[20] = { '\0' };
+	char str2[20] = { '\0' };
+	char result[40] = { '\0' };
+	char cat[40] = { '\0' };
+
+	printf("첫번째 문자열을 입력하세요: ");
+	gets(str1);
+	printf("두번째 문자열을 입력하세요: ");
+	gets(str2);
+
+	search(str1, str2, result, cat);
+
+	printf("%s 와 %s 에 사용된 알파벳: %s \n", str1, str2, result);
+}
+
+void search(char *p, char *q, char *r, char *c)
+{
+	char i;
+	strcpy(c, p);
+	strcat(c,q);
+	int k;
+
+	for (i = 'a'; i <= 'z'; i++)
+	{	
+		k = 0;
+		while (*(c+k)) 
+		{
+			if (*(c+k) == i)
+			{
+				*r = i;
+				r++;
+				break;
+			}
+			else
+				k++;
+		}
+		
+			
+	}
+	*r = '\0';
+}

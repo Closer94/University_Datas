@@ -1,0 +1,223 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+#include <limits.h>
+
+void f8()
+{
+	int str[2][50];
+
+	do {
+		printf("문자열입력: ");
+		gets(str[0]);
+		if (str[0] == '\0')
+		{
+			printf("<Enter키>");
+			break;
+		}
+		else
+		{
+			printf("문자열입력: ");
+			gets(str[1]);
+			if (strcmp(str[0], str[1]) == 0)
+				printf("두 문자열은 같다. \n");
+			else
+				printf("두 문자열은 다르다 \n");
+		}
+	} while (1);
+}
+
+void f9()
+{
+	int from[4];
+	int sum = 0;
+
+	for (int i = 0; i < sizeof(from) / sizeof(int); i++)
+	{
+		printf("정수를 입력하세요: ");
+		scanf("%d", &from[i]);
+	}
+	for (int k = 0; k < sizeof(from) / sizeof(int); k++)
+	{
+		sum = sum + from[k];
+	}
+	printf("합 = %d", sum);
+}
+
+void f10()
+{
+	int from[4];
+	int to[4];
+
+	for (int i = 0; i < sizeof(from) / sizeof(int); i++)
+	{
+		printf("정수입력 : ");
+		scanf("%d", &from[i]);
+	}
+
+	for (int k = 0; k < sizeof(from) / sizeof(int); k++)
+	{
+		to[k] = from[k];
+		printf("from배열 : %d, to배열 : %d \n", from[k], to[k]);
+	}
+}
+
+void f11()
+{
+	int arr[4];
+	int max = INT_MIN;
+	int min = INT_MAX;
+
+	for (int i = 0; i < sizeof(arr) / sizeof(int); i++)
+	{
+		printf("정수입력: ");
+		scanf("%d", &arr[i]);
+	}
+
+	for (int k = 0; k < sizeof(arr) / sizeof(int); k++)
+	{
+		if (arr[k] > max)
+			max = arr[k];
+		if (arr[k] < min)
+			min = arr[k];
+	}
+
+	printf("가장 큰 수 = %d, 가장 작은 수 = %d", max, min);
+}
+
+void f12()
+{
+	int num[5] = { 0,1,2,3,4 };
+	int arr[10];
+	int count0 = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0;
+	int count[5];
+	int max = 0;
+	int result;
+	
+	for (int i = 0; i < sizeof(arr) / sizeof(int); i++)
+	{
+		printf("정수 입력: ");
+		scanf("%d", &arr[i]);
+	}
+
+	for (int k = 0; k < 10; k++)
+	{
+		if (arr[k] == num[0])
+			count[0] = ++count0;
+		else if (arr[k] == num[1])
+			count[1] = ++count1;
+		else if (arr[k] == num[2])
+			count[2] = ++count2;
+		else if (arr[k] == num[3])
+			count[3] = count3++;
+		else if (arr[k] == num[4])
+			count[4] = ++count4;
+
+	}
+
+	for (int j = 0; j < 5; j++)
+	{
+		if (count[j] > max) {
+			max = count[j];
+			result = j;
+		}
+	}
+
+	printf("가장많이 불린 수: %d, 출력 된 수: %d \n", result, max);
+}
+void main()
+{
+	//f8();
+	//f9();
+	//f10();
+	//f11();
+	//f12();
+
+	getchar();
+}
+
+
+*****************************************************************
+14번
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+#include <limits.h>
+
+int leng(char[], char);
+
+void main()
+{
+	char str[50];
+	char ch;
+	int len;
+
+	printf("문자열 입력하세요: ");
+	gets(str);
+	printf("문자입력하세요: ");
+	ch = getche();
+	printf("\n");
+	len = leng(str, ch);
+	printf("문자의 개수: %d", len);
+
+	getchar();
+}
+
+int leng(char instr[50], char ch)
+{
+	int count = 0;
+
+	for (int i = 0; instr[i] != '\0'; i++)
+	{
+		if (instr[i] == ch)
+			count++;
+	}
+
+
+
+	return count;
+}
+
+****************************************************************
+15번
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+#include <limits.h>
+ 
+void copy(int[10], int[10], int);
+
+int main()
+{
+	int n;
+	int from[10];
+	int to[10];
+	
+	for (int i = 0; i < 10; i++)
+	{
+		printf("정수입력: ");
+		scanf("%d", &from[i]);
+	}
+	printf("몇까지 복사하고 싶습니까? ");
+	scanf("%d", &n);
+
+	copy(from, to, n);
+	
+}
+
+void copy(int from[10], int to[10], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		to[i] = from[i];
+		printf("from[%d] : %d, to[%d] : %d \n", i, from[i], i, to[i]);
+	}
+
+}

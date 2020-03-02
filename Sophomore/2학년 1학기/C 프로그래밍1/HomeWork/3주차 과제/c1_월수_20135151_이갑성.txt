@@ -1,0 +1,109 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <String.h>
+
+#define width 3.305785
+
+void ex03(void)
+{
+	int point1 = 95, point2 = 84;
+	int total = 0;
+
+	total = point1 + point2;
+
+	printf("두 점수의 합: %d + %d = %d \n", point1, point2, total);
+	printf("두 점수의 평균:( %d + %d ) / 2 = %d \n", point1, point2, total/2);
+	
+	printf("두 점수의 평균:( %d + %d ) / 2 = %10.3f \n", point1, point2, total/2.0);
+	printf("두 점수의 평균:( %d + %d ) /  2 = %-10.3f \n", point1, point2, total/2.0);
+}
+
+void ex04(void)
+{
+	int num;
+	printf("정수를 입력하세요: ");
+	scanf("%d", &num);
+	fflush(stdin);
+	printf("입력된 정수: %d \n", num);
+	printf("16진수 %x, 10진수: %d \n", num, num);
+}
+
+void ex06(void)
+{
+	char ch;
+	int num;
+
+	ch = 'A' + 2;
+	num = 'A' + 2;
+
+	printf("'A' + 2 의 문자출력: %c \n", ch);
+	printf("'A' + 2 의 정수출력: %d \n", num);
+	printf("이유: ch은 문자변수인 char로 설정을 했기때문에 문자가 나오고, num은 정수형 변수인 int로 설정을 했기때문에 정수값(아스키코드에 맞는)이 나오게 된다.");
+}
+
+}
+
+void ex07(void)
+{
+	char cha = 'a';
+	char chA = 'A';
+	int result = cha - chA;
+	printf("문자 A 와 a의 차이: %d \n", result);
+}
+
+void ex08(void)
+{
+	char ch;
+
+	printf("문자를 입력하세요: ");
+	scanf("%c", &ch);
+	fflush(stdin);
+	printf("%c \n", ch);
+	printf("%o \n", ch);
+	printf("%d \n", ch);
+	printf("%x \n", ch);
+	printf("%#c \n", ch);
+	printf("%#o \n", ch);
+	printf("%#d \n", ch);
+	printf("%#x \n", ch);	
+}
+
+void ex09(void)
+{
+	printf("char: %d byte\n", sizeof(char));
+	printf("short: %d byte\n", sizeof(short));
+	printf("int: %d byte\n", sizeof(int));
+	printf("float: %d byte\n", sizeof(float));
+	printf("double: %d byte\n", sizeof(double));
+}
+void ex12(void)
+{
+	int peong;
+	double result = 0;
+
+	printf("평수를 입력하세요: ");
+	scanf("%d", &peong);
+	fflush(stdin);
+	result = peong * width;
+	printf("%f m^2 \n", result);
+
+}
+int main(void)
+{
+	ex03();
+	printf("\n");
+	ex04();
+	printf("\n");
+	ex06();
+	printf("\n");
+	ex07();
+	printf("\n");
+	ex08();
+	printf("\n");
+	ex09();
+	printf("\n");
+	ex12();
+	getchar();
+}

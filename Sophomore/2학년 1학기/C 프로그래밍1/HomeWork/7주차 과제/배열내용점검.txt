@@ -1,0 +1,97 @@
+9-3번
+
+int position(char[], char);
+
+void main()
+{
+	char str[] = "apple";
+	char ch = 'a';
+	int index;
+
+	index = position(str, ch);
+	printf("%d", index);
+}
+
+int position(char instr[], char inch)
+{
+	int find;
+
+	for (int i = 0; i < strlen(instr); i++)
+	{
+		if (instr[i] == inch)
+			find = i;
+	}
+	return find;
+}
+
+*********************************************************************************
+9-4번
+
+void absolute(double[], int[]);
+
+void main()
+{
+	double dou[5] = {3.5, 46.25, 18.3, 44.6, 45.3};
+	int in[5] = {0};
+
+	absolute(dou, in);
+}
+
+void absolute(double indou[], int inin[])
+{
+	for (int i = 0; i < 5; i++)
+	{
+		inin[i] = abs(indou[i]);
+		printf("%d \n", inin[i]);
+	}
+	
+	
+}
+
+*********************************************************************************
+9-5번
+void strplus(char[][7]);
+
+void main()
+{
+	char str[3][7] = { "kabsug", "sungmi", NULL};
+
+	strplus(str);
+}
+
+void strplus(char instr[][7])
+{
+	strcpy(instr[2], instr[0]);
+	strcat(instr[2], instr[1]);
+	printf("%s", instr[2]);
+}
+
+
+*********************************************************************************
+9-6번
+
+int mystrcmp(char[][7]);
+
+void main()
+{
+	char str[2][7] = { "apple", "water" };
+	int result;
+
+	result = mystrcmp(str);
+	if (result == 0)
+		printf("같다");
+	else
+		printf("다르다");
+}
+
+int mystrcmp(char instr[2][7])
+{
+	if (strcmp(instr[0], instr[1]) == 0)
+		return 0;
+	else
+		return 1;
+}
+
+*********************************************************************************
+9-7번
+

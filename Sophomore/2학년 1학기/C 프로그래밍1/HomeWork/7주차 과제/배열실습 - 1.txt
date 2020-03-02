@@ -1,0 +1,162 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <limits.h>
+
+void f1()
+{
+	char ch[4];
+
+	for (int i = 0; i < 4; i++) {
+		printf("문자 입력: ");
+		ch[i] = getche(); // scanf("%c", in + i);
+		printf("\n");
+	}
+	printf("입력된 문자열: ");
+	for (int i = 0; i < 4; i++) {
+		printf("%c", ch[i]);
+	}
+	printf("\n");
+}
+
+void f2()
+{
+	char ch[CHAR_MAX];
+
+	printf("문자열 입력: ");
+	gets(ch);
+	printf("%s \n", ch);
+}
+
+void f3()
+{
+	char ch[CHAR_MAX];
+
+	printf("문자열입력 : ");
+	scanf("%s", ch);
+
+	printf("입력된 문자열 길이 = %d \n", strlen(ch));
+}
+
+void f4()
+{
+	char str[100];
+	int count;
+	
+	do {
+		count = 0;
+		printf("문자열 입력: ");
+		gets(str);
+		if (str[0] == '\0')
+		{
+			printf("<Enter 키>");
+			break;
+		}
+		else {
+			for (int i = 0; str[i] != '\0'; i++)
+			{
+				count++;
+			}
+			printf("입력된 문자열 길이 = %d \n", count);
+		}
+	} while (1);
+}
+
+void f5()
+{
+	char str[100];
+	char ch;
+	int count;
+
+	do {
+		count = 0;
+		printf("문자열을 입력하세요: ");
+		gets(str);
+		if (str[0] == '\0') 
+		{
+			printf("<Enter키>");
+			break;
+		}
+		else 
+		{
+			printf("문자 입력: ");
+			ch = getche();
+			printf("\n");
+			for (int i = 0; str[i] != '\0'; i++)
+			{
+				if (str[i] == ch)
+					count++;
+			}
+			printf("입력된 문자열 %s에서 %c는 %d개", str, ch, count);
+		}
+	} while (1);
+
+}
+
+void f6()
+{
+	char ch[CHAR_MAX];
+
+	do {
+		printf("문자열 입력: ");
+		gets(ch);
+		if (ch[0] == '\0')
+		{
+			printf("<Enter키>");
+			break;
+		}
+
+		printf("역순 = ");
+		for (int i = strlen(ch); i >= 0; i--)
+		{
+			printf("%c", ch[i]);
+		}
+		printf("\n");
+	} while (1);
+}
+
+void f7() //정수형 배열을 문자열로 저장
+{
+	int num = 0;
+	int rest[100];
+	int i;
+
+	do {
+		i = 0; // 진수값을 구했으면 i를 0부터 다시 초기화해서 인덱스 i를 0부터 다시 실행시킨다.
+
+		printf("정수입력: ");
+		scanf("%d", &num);
+		if (num == 0)
+			break;
+		printf("입력된 %d의 이진수는", num);
+			
+		while (1)
+		{
+			rest[i] = num % 2; 
+			num = num / 2;
+			if (num == 0)
+				break; 
+			i++; // num이 0인지 아닌지 더 할 것인지 보고 i를 증가시켜야한다.		
+		}
+		for (int j = i; j >= 0; j--)
+		{
+			printf("%d", rest[j]);
+		}
+		printf("\n");
+
+	} while (1);
+}
+
+void main()
+{
+	//f1();
+	//f2();
+	//f3();
+	//f4();
+	//f5();
+	//f6();
+	f7();
+	getchar();
+}

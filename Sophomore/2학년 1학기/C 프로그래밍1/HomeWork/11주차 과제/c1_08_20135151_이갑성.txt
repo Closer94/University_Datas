@@ -1,0 +1,235 @@
+10번
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+int mystrlen(char *p);
+
+void main()
+{
+	char str[100];
+	int len = 0;
+	char *ptr;
+
+	printf("문자열을 입력하세요: ");
+	gets(str);
+	len = mystrlen(str);
+	printf("문자열의 길이: %d \n", len);
+
+}
+
+int mystrlen(char *p)
+{
+	int count = 0;
+	
+	while (*p)
+	{
+		p++;
+		count++;
+	}
+
+	return count;
+}
+
+**********************************************************************
+11번
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+int mystrchcnt(char *p, char);
+
+void main()
+{
+	char str[100];
+	char ch;
+	int len;
+
+	printf("문자열을 입력하세요: ");
+	gets(str);
+	printf("문자를 입력하세요: ");
+	ch = getche();
+	printf("\n");
+	len = mystrchcnt(str, ch);
+	printf("%s의 문자열에서 %c의 개수는 %d개 입니다. \n", str, ch, len);
+}
+
+int mystrchcnt(char *p, char inch)
+{
+	int count = 0;
+
+	while (*p)
+	{
+		if (inch == *p)
+			count++;
+		p++;
+	}
+	return count;
+}
+
+**********************************************************************
+12번
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+void mystrupper(char *, char *);
+
+void main()
+{
+	char source[20];
+	char target[20];
+
+	printf("소문자 문자열을 입력하세요: ");
+	gets(source);
+
+	mystrupper(source, target);
+	printf("대문자로 바뀐 문자열: %s \n", target);
+
+}
+
+void mystrupper(char *p1, char *p2)
+{
+	while(*p1){
+		*p2 = toupper(*p1);
+		p1++;
+		p2++;
+	}
+	*p2 = '\0';
+}
+
+**********************************************************************
+6번
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+int mystrcmp(char *, char *);
+
+void main()
+{
+	char str1[10];
+	char str2[10];
+	int result;
+
+	printf("문자열을 입력하세요: ");
+	gets(str1);
+	printf("문자열을 입력하세요: ");
+	gets(str2);
+
+	result = mystrcmp(str1, str2);
+	if (result == 0)
+		printf("두 문자열은 같습니다. \n");
+	else
+		printf("두 문자열은 다릅니다. \n");
+}
+
+int mystrcmp(char *p1, char *p2)
+{
+	int rssult;
+
+	while (*p1 && *p2)
+	{
+		if (*p1 != *p2)
+			return -1;
+		p1++;
+		p2++;
+	}
+	return 0;
+}
+
+**********************************************************************
+8번
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+void increment(double *, double *, int);
+void print(double *, int);
+
+void main()
+{
+	double ary[5] = { 3.12, 5.14, 7.25, 7.48, 5.91 };
+	double target[5];
+	int size = sizeof(ary) / sizeof(double);
+
+	increment(ary, target, size);
+
+}
+
+void increment(double *p1, double *p2, int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+	{
+		*(p2 + i) = *(p1 + i);
+	}
+	print(p2, size);
+}
+
+void print(double *p2, int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+	{
+		printf("%.2lf ", *(p2 + i));
+	}
+}
+
+**********************************************************************
+9번
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+void increment(int *, int, int);
+void print(int *, int);
+void main()
+{
+	int data[] = { 3, 21, 35, 57, 24, 82, 8 };
+	int size = sizeof(data) / sizeof(int);
+	int n;
+
+	printf("data의 원소값을 몇씩 증가시키고 싶으세요?");
+	scanf("%d", &n);
+
+	increment(data, size, n);
+}
+
+void increment(int *p, int size, int n)
+{
+	int i;
+	for (i = 0; i < size; i++)
+	{
+		*(p + i) = *(p + i) + n;
+	}
+
+	print(p, size);
+}
+
+void print(int *p, int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+	{
+		printf("%d ", *(p+i));
+	}
+}

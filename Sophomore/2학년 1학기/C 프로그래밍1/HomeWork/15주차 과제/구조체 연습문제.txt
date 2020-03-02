@@ -1,0 +1,184 @@
+6번
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+struct book 
+{
+	char name[10];
+	int money;
+};
+
+void input_arr(struct book *p);
+void print_datas(struct book *p);
+int total_amount(struct book *p);
+void main()
+{
+	struct book mybook[3];
+	int total;
+
+	input_arr(mybook);
+	print_datas(mybook);
+	total = total_amount(mybook);
+	printf("저장된 모든 책의 가격: %d", total);
+}
+
+void input_arr(struct book *p)
+{
+	int i;
+
+	for (i = 0; i < 3; i++)
+	{
+		printf("책의 이름을 입력하세요: ");
+		gets((p+i)->name);
+		printf("책의 가격을 입력하세요: ");
+		scanf("%d", &((p+i)->money));
+		getchar();
+	}
+}
+
+void print_datas(struct book *p)
+{
+	int i;
+
+	for (i = 0; i < 3; i++)
+	{
+		printf("책 이름 : %s, 책 가격: %d \n", (p + i)->name, (p + i)->money);
+	}
+}
+
+int total_amount(struct book *p)
+{
+	int i;
+	int total = 0; 
+
+	for (i = 0; i < 3; i++)
+	{
+		total += (p+i)->money;
+	}
+	return total;
+}
+
+
+==========================================================================================
+7번
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+struct person
+{
+	char name[10];
+	int age;
+	char tel[20];
+};
+
+struct student
+{
+	struct person personal;
+	char city[10];
+};
+
+void print_std(struct student *p);
+void find_std_city(struct student *p, char city);
+
+void main()
+{
+	struct student stu[4] = { 
+							{{"PARK", 40, "010-3333-24565"}, "seoul"}
+							,{{"LEE", 50, "016-3467-4389"}, "chuncheon"}
+							,{{"Shin", 55, "017-2222-2456"}, "busan"}
+							,{{"Yang", 55, "017-2222-0000"}, "seoul"}
+	};
+	char city[10];
+
+	print_std(stu);
+	printf("도시를 입력하세요:");
+	gets(city);
+	find_std_city(stu, city);
+}
+
+void print_std(struct student *p)
+{
+	int i;
+	for (i = 0; i < 4; i++)
+	{
+		printf("이름: %s, 나이: %d, 전화번호: %s, 도서: %s \n", (p + i)->personal.name, (p + i)->personal.age, (p + i)->personal.tel, (p + i)->city);
+	}
+}
+
+void find_std_city(struct student *p, char *q)
+{
+	int i;
+
+	for (i = 0; i < 4; i++)
+	{
+		if (strcmp((p + i)->city, q) == 0)
+		{
+			printf("이름: %s, 나이: %d, 전화번호: %s \n", (p + i)->personal.name, (p + i)->personal.age, (p + i)->personal.tel);
+		}
+
+	}
+}
+
+===============================================================================================
+8번
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+struct binary
+{
+	char six;
+	char two[5];
+};
+
+void change(struct binary *b, char ch, char *r);
+
+void main()
+{
+	struct binary bi[16] = {
+		{ '0', "0000" },{ '1', "0001" },{ '2', "0010" },{ '3', "0011" }
+		,{ '4', "0100" },{ '5', "0101" },{ '6', "0110" },{ '7', "0111" }
+		,{ '8', "1000" },{ '9', "1001" },{ 'a', "1010" },{ 'b', "1011" }
+		,{ 'c', "1100" },{ 'd', "1101" },{ 'e', "1110" },{ 'f', "1111" }
+	};
+	char ch;
+	char result[5];
+
+	printf("16진수 => 2진수 변환 \n");
+	do {
+		printf("16진수 입력: ");
+		ch = getche();
+		if ((ch >= '0' && ch <= '9') || (ch >= 'a' && ch <= 'f'))
+		{
+			change(bi, ch, result);
+			printf("=> %s \n", result);
+		}
+		else
+		{
+			printf("xxxx\n");
+			printf("16진수가 아닙니다. 종료합니다. \n");
+			break;
+		}
+	} while (1);
+}
+
+void change(struct binary *b, char ch, char *r)
+{
+	int i;
+
+	for (i = 0; i < 16; i++)
+	{
+		if ((b + i)->six == ch)
+			strcpy(r, (b + i)->two);
+	}
+}

@@ -1,0 +1,116 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+#include <limits.h>
+ 
+void f1()
+{
+	double *s, source[] = { 3.12, 5.14, 7.25, 7.48, 5.91 };
+	double *t, target[5]={0};
+	s = source;
+	t = target;
+	int size = sizeof(source) / sizeof(double);
+	int i;
+
+	printf("복사된 target의 원소: ");
+	for (i = 0; i < size; i++) {
+		*(t+i) = *(s+i);
+		printf("%.2lf ", *(t+i));
+	}
+}
+
+void f2()
+{
+	int data[] = { 3, 21, 35, 57, 24 };
+	int n;
+	int size = sizeof(data) / sizeof(int);
+	int *ptr = data;
+	int i;
+
+	printf("data의 원소를 몇씩 증가시키고 싶으세요? ");
+	scanf("%d", &n);
+
+	printf("증가된 원소의 값: ");
+	for (i = 0; i < size; i++)
+	{
+		*(ptr + i) = *(ptr + i) + n;
+		printf("%d ", *(ptr + i));
+	}
+	printf("\n");
+}
+
+void f3()
+{
+	char source[10];
+	char target[10];
+	char *ptr1 = source;
+	char *ptr2 = target;
+	int i;
+
+	printf("문자열을 입력하세요: ");
+	gets(source);
+	printf("입력된 문자열 : %s \n", ptr1);
+
+	for (i = 0; i < strlen(source); i++)
+	{
+		*(ptr2 + i) = toupper(*(ptr1 + i));
+	}
+	*(ptr2 + i) = '\0';
+	printf("변환된 문자열 : %s \n", ptr2);
+}
+
+void f4()
+{
+	char source[2][10];
+	char *ptr1 = source[0];
+	char *ptr2 = source[1];
+	int i;
+
+	printf("문자열을 입력하세요: ");
+	gets(source[0]);
+	printf("입력받은 문자열: %s \n", source[0]);
+	
+	for (i = 0; i < strlen(source[0]); i++)
+	{
+		*(ptr2 + i) = toupper(*(ptr1+i));
+	}
+	*(ptr2 + i) = '\0';
+	printf("변경된 문자열 : %s \n", ptr2);
+}
+
+void f5(){
+	char sa[20];
+	char sb[20];
+	char *a= sa;
+	char *b= sb;
+
+	printf("문자열 입력하세요: ");
+	gets(sa);
+	printf("문자열 입력하세요: ");
+	gets(sb);
+	printf("프로그램 수행 전 sa = %s, sb = %s \n", sa, sb);
+
+	while(*a) { 
+		a++;
+	};
+	while(*b) {
+		*a = *b;
+		a++;
+		b++;
+	};
+	*a='\0';
+	
+	printf("프로그램 수행 후 sa = %s, sb = %s \n", sa, sb);
+}
+
+
+void main()
+{
+	f1();
+	f2();
+	f3();
+	f4();
+	f5();
+}

@@ -1,0 +1,259 @@
+20번
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+void prtstrlen(char(*p)[10], int);
+
+main(){
+	char ch[4][10] = { NULL };
+	int i;
+	int size = sizeof(ch) / sizeof(ch[0]);
+	for (i = 0; i < size; i++)
+	{
+		printf("문자열을 입력: ");
+		gets(ch[i]);
+	}
+
+	prtstrlen(ch, size);
+}
+
+void prtstrlen(char (*p)[10], int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+	{
+		printf("	%s = %d \n",*(p+i) ,strlen(*(p+i))); // = p[i]
+	}
+}
+
+***************************************************************************************
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+char findname(char(*p)[10], char *f, int size);
+
+void main()
+{
+	char str[5][10];
+	int i;
+	int size = sizeof(str) / sizeof(str[0]);
+	char isture;
+	char find[20];
+
+	for (i = 0; i < size; i++)
+	{
+		printf("저장될 이름 입력: ");
+		gets(str[i]);
+	}
+
+	do {
+		printf("찾을 이름 입력: ");
+		gets(find);
+		isture = findname(str, find, size);
+		if (find[0] == '\0')
+		{
+			printf("<Enter키>");
+			break;
+		}
+
+		else if (isture == 't')
+		{
+			printf("%s 우리 반 입니다. \n", find);
+		}
+
+		else
+			printf("%s 우리 반이 아닙니다. \n", find);
+
+	} while (1);
+}
+
+char findname(char(*p)[10], char *f, int size)
+{
+	int i;
+
+	for (i = 0; i < size; i++)
+	{
+		if (strcmp(*(p + i), f) == 0)
+			return 't';
+	}
+	return 'f';
+}
+***************************************************************************************
+
+22번
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+char isSame(char(*p)[10]);
+
+void main()
+{
+	char str[2][10] = {'\0'};
+	char istrue = '\0';
+
+	do {
+		printf("문자열입력: ");
+		gets(str[0]);
+		if (str[0][0] == '\0')
+		{
+			printf("<Enter키>");
+			break;
+		}
+		printf("문자열입력: ");
+		gets(str[1]);
+
+		istrue = isSame(str);
+		if (istrue == 't')
+			printf("%s 와 %s는 같음 \n", str[0], str[1]);
+		else if(istrue == 'f')
+			printf("%s 와 %s는 다름 \n", str[0], str[1]);
+
+	} while (1);
+
+}
+
+char isSame(char (*p)[10])
+{
+	if (strcmp(*(p + 0), *(p + 1)) == 0)
+		return 't';
+	else
+		return 'f';
+}
+********************************************************************************************
+23번
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+void sum(int (*p)[5], int);
+
+void main()
+{
+	int score[5][5] = {78,48,78,98,0,99,92,83,29,0,29,64,83,89,0,34,78,92,56,0,0,0,0,0,0};
+	int i, k;
+	int size = sizeof(score) / sizeof(score[0]);
+
+	sum(score, size);
+
+	for (k = 0; k < size - 1; k++)
+	{
+		printf("rSum[%d][4] = %d, cSum[4][%d] = %d 입니다. \n", k, score[k][4], k, score[4][k]);
+	}
+	
+
+	printf("총합 aSum[4][4] = %d 입니다.", score[4][4]);
+
+}
+
+void sum(int (*p)[5], int size)
+{
+	int i, k, temp = 0;
+	for (i = 0; i < size - 1; i++)
+	{
+		for (k = 0; k < size - 1; k++)
+		{
+			*(*(p + i) + 4) += *(*(p + i) + k); // 가로의 합
+			*(*(p + 4) + i) += *(*(p + k) + i); // 세로의 합
+		}
+		temp = *(*(p + i) + 4) + *(*(p + 4) + i); // 가로의 합 + 세로의 합
+		*(*(p + 4) + 4) += temp;
+	}
+
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+sum함수에서 출력하는 유형
+
+void sum(int (*p)[5], int size)
+{
+	int i, k, temp = 0;
+	for (i = 0; i < size - 1; i++)
+	{
+		for (k = 0; k < size - 1; k++)
+		{
+			*(*(p + i) + 4) += *(*(p + i) + k); // 가로의 합
+			*(*(p + 4) + i) += *(*(p + k) + i); // 세로의 합
+		}
+		temp = *(*(p + i) + 4) + *(*(p + 4) + i); // 가로의 합 + 세로의 합
+		*(*(p + 4) + 4) += temp;
+	}
+
+	for (k = 0; k < size - 1; k++)
+	{
+		printf("rSum[%d][4] = %d, cSum[4][%d] = %d 입니다. \n", k, *(*(p+k)+4), k, *(*(p+4)+k));
+	}
+
+
+	printf("총합 aSum[4][4] = %d 입니다.", *(*(p+4)+4));
+
+}
+
+********************************************************************************************
+
+13번
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+void plus(double(*p1)[3], double(*p2)[3], double *(re)[3], int csize, int rsize);
+void minus(double(*p1)[3], double(*p2)[3], double *(re)[3], int csize, int rsize);
+
+void main()
+{
+	double arr1[2][3] = { 4.2, 4.3, 3.8, 3.7, 1.5, 0.7 };
+	double arr2[2][3] = { 5.2, 2.1, 1.8, 3.2, 1.4, 2.9 };
+	double result[2][3];
+	int rsize = sizeof(arr1) / sizeof(arr1[0]); // 행 사이즈  2
+	int csize = sizeof(arr1[0]) / sizeof(double); // 열 사이즈 3
+	plus(arr1, arr2, result, rsize, csize);
+	minus(arr1, arr2, result, rsize, csize);
+}
+
+void plus(double (*p1)[3], double (*p2)[3], double (*re)[3], int rsize, int csize)
+{
+	int i, k;
+
+	printf("더하기 결과: \n");
+
+	for (i = 0; i < rsize; i++)
+	{
+		for (k = 0; k < csize; k++)
+		{
+			*(*(re + i) + k) = *(*(p1 + i) + k) + *(*(p2 + i) + k);
+			printf("result[%d][%d] = %.2lf \n", i, k, *(*(re + i) + k));
+		}
+	}
+}
+
+void minus(double(*p1)[3], double(*p2)[3], double (*re)[3], int rsize, int csize)
+{
+	int i, k;
+
+	printf("빼기 결과: \n");
+
+	for (i = 0; i < rsize; i++)
+	{
+		for (k = 0; k < csize; k++)
+		{
+			*(*(re + i) + k) = *(*(p1 + i) + k) - *(*(p2 + i) + k);
+			printf("result[%d][%d] = %.2lf \n", i, k, *(*(re + i) + k));
+		}
+	}
+}

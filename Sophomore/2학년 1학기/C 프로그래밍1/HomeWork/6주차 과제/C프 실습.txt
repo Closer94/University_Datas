@@ -1,0 +1,322 @@
+chapter 5. 14번 
+void f1()
+{
+	int num = 0;
+	printf("정수 몇까지의 삼각형을 만들껍니까?");
+		scanf("%d", &num);
+
+		for (int i = 0; i <= num; i++)
+		{
+			for (int k = i; k < num; k++)
+				printf("  ");
+			for (int j = -i; j <= i; j++)
+				printf("%d ", abs(j));
+		printf("\n");
+		}
+	
+}
+
+또는 
+
+void f1()
+{
+	int num;
+
+	printf("정수를 입력하세요: ");
+	scanf("%d", &num);
+
+	for (int i = 0; i <= num; i++)
+	{
+		for (int j = num; j >i; j--) 
+			printf(" ");
+		for (int k = -i; k <= i; k++)
+			printf("%d", abs(k));
+		printf("\n");
+		
+	}
+}
+
+********************************************************************
+chapter 6. 3번
+
+double absolute(double);
+
+int main()
+{
+	double num = 0.0;
+	double result = 0.0;
+	
+	printf("실수값을 입력하세요: ");
+	scanf("%lf", &num);
+	result = absolute(num);
+	printf("결과값: %lf \n", result);
+
+	getchar();
+}
+
+double absolute(double inNum)
+{
+	double prt = 0.0;
+	prt = abs(inNum);
+	return prt;
+}
+
+********************************************************************
+4번 // 이거 정수로 받아들이면 안되고 임의의 양의 실수로 바꿔야하지않나요?
+그래야 소수를 판별할수있는거 아닌가요?
+int isprime(int);
+
+void main()
+{
+	int num, result;
+	
+	printf("정수를 입력하세요:");
+	scanf("%d", &num);
+	result = isprime(num);
+	if (result == 1)
+		printf("소수입니다.");
+	else
+		printf("소수가 아닙니다.");
+}
+		
+int isprime(int inN)
+{
+	for (int i = 2; i <= inN; i++)
+	{
+		if (inN % i == 0) 
+		{
+			if (inN == i)
+				return 1;
+			else
+				return 0;
+		}
+	}
+}
+
+
+********************************************************************
+5번
+
+#define _CRT_NONSTDC_NO_WARNINGS
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <time.h>
+char input(char);
+void next(char, int);
+
+int isExceedCount(int);
+
+void main()
+{
+	int number = 0, put = 0, count = 0;
+	int result = 0;
+
+	srand((long)time(NULL));
+	number = rand() % 100 + 1;
+	printf("임의의 수가 정해졌습니다. 이 정수는 무엇일까요?\n(기회는 최대 7번 입니다.) \n");
+	while (1)
+	{
+		printf("입력해보세요: ");
+		scanf("%d", &put);
+		count++;
+
+		result = isExceedCount(count);
+		if (result == 1) {
+			printf("모든 기회를 다 쓰셨습니다.\n");
+			break;
+		}
+
+		if (number == put)
+		{
+			printf("정답입니다.");
+			break;
+		}
+		else if (number < put) {
+			if(result == 0){
+			printf("입력한 값보다 작습니다. 다시 해보세요:");
+			}
+		}
+		else if (number > put) {
+			if(result == 0){
+			printf("입력한 값보다 큽니다. 다시 해보세요: ");
+			}
+		}
+		
+	}
+}
+
+
+
+int isExceedCount(int incount)
+{
+	if (incount == 7) return 1;
+	else return 0;
+		
+}
+
+********************************************************************
+6번 
+
+#define _CRT_NONSTDC_NO_WARNINGS
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <time.h>
+#define MAX 45
+
+int getnumber(int);
+
+void main()
+{
+	int a, b, c, d, e, f;
+
+	a = getnumber(MAX);
+	
+	do{
+		b = getnumber(MAX);
+	}while(a == b);
+
+	do{
+		c = getnumber(MAX);
+	}while((c == a) || (c == b));
+
+	do{
+		d = getnumber(MAX);
+	}while((d == a) || (d == b) || (d == c));
+
+	do{
+		e = getnumber(MAX);
+	}while((e == a) || (e == b) || (e == c) || (e == d));
+
+	do{
+		f = getnumber(MAX);
+	}while((f == a) || (f == b) || (f == c) || (f == d) || (f == e));
+
+	printf("%d %d %d %d %d %d", a, b, c, d, e ,f);
+}
+
+int getnumber(int n)
+{
+	srand((long)time(NULL));
+	return rand()% n + 1;
+}
+
+********************************************************************
+7번
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+
+#define MAX 100
+#define LINEITEM 10
+
+int getcount(void);
+char getch(void);
+
+void main()
+{
+	int num;
+	int result = 100;
+	int min;
+	int count = 0;
+	char minch;
+	char ch;
+	
+		num = getcount();
+	do
+	{
+		ch = getch();	
+		min = 'm' - ch;
+		if(min < 0)
+			min = min * -1;
+		if(min < result)
+		{
+			result = min;
+			minch = ch;
+		}
+		count++;
+	}while(count < num);
+	printf("가장 차이 작은 알파벳: %c", minch);
+}
+
+int getcount(void)
+{
+	int num;
+	
+	printf("반복횟수 입력: ");
+	scanf("%d", &num);
+	return num;
+}
+
+char getch(void)
+{
+	char ch;
+	while(1){
+	printf("문자를 입력해라: ");
+	scanf("%c", &ch);
+	if(!(isalpha(ch)))
+		continue;
+	printf("\n");
+	return ch;
+	}
+}
+
+********************************************************************
+8번
+char getCount(int);
+char getInChar(int);
+
+int main()
+{
+	int count;
+	char prt;
+	printf("반복횟수를입력하세요:");
+	scanf("%d", &count);
+	prt = getCount(count);
+	printf("M과 가장 가까운 문자는: %c \n", prt);
+
+}
+
+char getCount(int incount)
+{
+	char result;
+	result = getInChar(incount);
+	return result;
+}
+
+char getInChar(int getcount)
+{
+	char ch;
+	int  count = 0;
+	int result;
+	char min = 'z';
+	char minchar;
+		do{
+		printf("문자입력: ");
+		ch = getche();
+		printf("\n");
+		if (!(tolower(ch) >= 'a' && tolower(ch) <= 'z')) {
+			printf("알파벳이 아닙니다 다시 입력하세요 \n");
+			continue;
+		}
+		else {
+			result = 'm' - ch;
+			if (result < 0)
+				result = result * -1;
+
+			if (result < min) 
+			{
+				min = result;
+				minchar = ch;
+			}
+		}
+			count++;
+		} while (count < getcount);
+			return minchar;
+}

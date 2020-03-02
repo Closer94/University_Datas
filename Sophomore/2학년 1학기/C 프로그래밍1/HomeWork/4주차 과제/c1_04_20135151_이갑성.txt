@@ -1,0 +1,153 @@
+#define _CRT_NONSTDC_NO_WARNINGS
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <String.h>
+
+void f2(void)
+{
+	char ch;
+	double temp;
+	double result;
+
+	printf("온도를 입력하세요: ");
+	scanf("%lf", &temp);
+	fflush(stdin);
+	printf("입력된 온도: %.3f \n", temp);
+	printf("화씨(C or c), 섭씨(F or f) \n");
+	printf("화씨를 입력하면 섭씨로 변환, 섭씨를 입력하면 화씨로 변환됩니다. \n");
+	printf("바꾸고 싶은 온도를 입력하세요:");
+	ch = getche();
+	printf("\n");
+	switch (ch)
+	{
+	case 'F':
+	case 'f':
+		result = (9.0 / 5.0) * temp + 32;
+		printf("화씨에서 섭씨로 변환 된 온도: %.3f \n", result);
+		break;
+	case 'C':
+	case 'c':
+		result = (5.0 / 9.0) * (temp - 32);
+		printf("섭씨에서 화씨로 변환 된 온도: %.3f \n", result);
+	}
+}
+
+void f3()
+{
+	int num;
+	
+
+	printf("정수를 입력하세요: ");
+	scanf("%d", &num);
+	fflush(stdin);
+
+	switch ((num / 2) > 10)
+	{
+	case 0: printf("NOK");
+		break;
+	default: printf("OK");
+
+	}
+}
+
+void f4()
+{
+	char ch;
+
+	do {
+		printf("문자를 입력하세요: \n");
+		ch = getche();
+		printf("\n");
+	} while (ch != 'q');
+
+	printf("\n q입력으로 종료");
+}
+
+void f5()
+{
+	int num;
+	int rest;
+	int count = 0;
+
+	printf("이진수로 바꿀 정수를 입력하세요:");
+	scanf("%d", &num);
+
+	while (num > 0)
+	{
+		rest = num % 2;
+		num = num / 2;
+		if (rest == 1)
+			count++;
+	}
+	printf("이진수로 바꾸었을때 1이 나타나는 횟수: %d 개\n", count);
+}
+
+void f6()
+{
+	char ch;
+	int count = 0;
+	printf("알파벳을 입력하세요:");
+	ch = getche();
+	printf("\n");
+
+	while ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z'))
+	{
+		printf("%c %c", ch, (++count % 5) ? ',' : '\n');
+		ch++;
+	}
+
+}
+
+void f12()
+{
+	char ch;
+	char first;
+
+
+	do {
+		first = 'a';
+
+		printf("k이하의 알파벳입력(q는 종료, k이상은 다시 입력): ");
+		ch = getche();
+		printf("\n");
+
+		if (tolower(ch) >= 'a' && tolower(ch) < 'k')
+		{
+			while (first <= ch) 
+			{
+				printf("%c", first);
+				first++;
+			}
+			
+			printf("\n");
+		}
+		else if (tolower(ch) == 'q')
+		{
+			printf("'q'입력으로 종료 \n");
+			break;
+		}
+		else if (tolower(ch) >= 'k')
+			continue;
+		else
+			return;
+	} while (1);
+}
+
+void main()
+{
+	f2();
+	printf("\n");
+	f3();
+	printf("\n");
+	f4();
+	printf("\n");
+   	f5();
+	printf("\n");
+	f6();
+	printf("\n");
+	f12();
+	getchar();
+	getchar();
+}

@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+struct person 
+{
+	char name[10];
+	int age;
+	char tel[10];
+};
+
+struct student
+{
+	struct person per;
+	char major[10];
+	char sub[4][10];
+};
+
+struct professor
+{
+	char name[10];
+	char pmajor[10];
+	char psub[10];
+};
+
+void prtmajor(struct student *p, char *f);
+void prtselect(struct student *s, struct professor *p, char *n);
+
+void main()
+{
+	struct student stu[5] = {
+							 {{"AB", 20, "010-0"}, "computer", {"a", "b", "c", "d"} }
+							,{{"BC", 21, "010-1"}, "science", {"b", "c", "d", "e" }}
+							,{{"CD", 22, "010-2"}, "society", {"c", "d", "e", "f"}}
+							,{{"DE", 23, "010-3"}, "language",{"d", "e", "f", "g"}} 
+							,{{"EF", 24, "010-4"}, "math", {"e", "f", "g", "h" }}
+	};
+	struct professor pro[5] = {
+							{"A", "computer", "a"}
+							,{"B", "science", "b"}
+							,{"C", "society", "c"}
+							,{"D", "math", "d"}
+							,{"E", "language", "e"}
+	};
+	char major[10];
+	char name[10];
+
+	printf("학과를 입력하세요:");
+	gets(major);
+
+	prtmajor(stu, major);
+
+	printf("학생이름을 입력하세요:");
+	gets(name);
+	prtselect(stu, pro, name);
+}
+
+void prtmajor(struct student *p, char *f)
+{
+	printf("%s를 듣는 수강생 이름찾기 \n", f);
+	int i;
+	for (i = 0; i < 5; i++)
+	{
+		if (strcmp((p + i)->major, f) == 0) {
+			printf("%s \n", (p + i)->per.name);
+		}
+	}
+}
+
+void prtselect(struct student *s, struct professor *p, char *n)
+{
+	printf("%s가 선택한 교과목과 그 과목을 가르치는 교수이름 찾기 \n", n);
+	int i;
+	int j;
+	int z;
+	for (i = 0; i < 5; i++)
+	{
+		if (strcmp((s + i)->per.name, n) == 0)
+		{
+			for (j = 0; j < 4; j++) {
+				printf("선택한 교과목: %s \n", (s + i)->sub[j]);
+				for (z = 0; z < 5; z++)
+				{
+					if (strcmp((s + i)->sub[j], (p + z)->psub) == 0)
+					{
+						printf("교수이름: %s \n", (p + z)->name);
+					}
+				}
+			}
+		}
+	}
+
+}
